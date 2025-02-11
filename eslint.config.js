@@ -15,7 +15,7 @@ export default [
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
-        node:true
+        
       },
     },
     settings: { react: { version: '18.3' } },
@@ -23,6 +23,7 @@ export default [
       react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      node:true
     },
     rules: {
       ...js.configs.recommended.rules,
