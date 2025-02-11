@@ -16,7 +16,7 @@ const Theme = () => {
     },[theme])
     const handleTheme = (e)=>{
         if(e.target.checked){
-            setTheme("dark")
+            setTheme("cyberpunk")
         }else{
             setTheme("light")
         }
@@ -29,6 +29,7 @@ const Theme = () => {
             <input 
             type="checkbox"
             onChange={handleTheme}
+            checked={theme === "cyberpunk"}
              />
             {
                 theme == "light" ? <MoonSvg/> : <SunSvg/>

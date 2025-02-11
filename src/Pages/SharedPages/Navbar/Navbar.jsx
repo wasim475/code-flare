@@ -14,13 +14,13 @@ const Navbar = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 font-bold">
             <li>
-              <Link>Home</Link>
+              <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <Link>Blogs</Link>
+              <Link to={"blogs"}>Blogs</Link>
             </li>
             <li>
-              <Link>Bookmarks</Link>
+              <Link to={"/bookmark"}>Bookmarks</Link>
             </li>
           </ul>
          <Theme/>
