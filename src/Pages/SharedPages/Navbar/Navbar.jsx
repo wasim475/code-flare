@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { MoonSvg, SunSvg } from "../../../Utility/Svg";
 import { useEffect, useState } from 'react';
 import Theme from '../../../components/Theme';
@@ -12,15 +12,15 @@ const Navbar = () => {
           <Link to={"/"} className="btn btn-ghost text-xl gap-0 text-secondary normal-case ">Code<span className='text-primary'>Flare</span></Link>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1 font-bold">
+          <ul className=" flex gap-x-4 px-1">
             <li>
-              <Link to={"/"}>Home</Link>
+              <NavLink to={"/"} className={({isActive})=> isActive ? 'text-primary font-bold underline': "font-normal"}>Home</NavLink>
             </li>
             <li>
-              <Link to={"blogs"}>Blogs</Link>
+              <NavLink to={"blogs"} className={({isActive})=> isActive ? 'text-primary font-bold underline': "font-normal"}>Blogs</NavLink>
             </li>
             <li>
-              <Link to={"bookmark"}>Bookmarks</Link>
+              <NavLink to={"bookmark"} className={({isActive})=> isActive ? 'text-primary font-bold underline': "font-normal"}>Bookmarks</NavLink>
             </li>
           </ul>
          <Theme/>
