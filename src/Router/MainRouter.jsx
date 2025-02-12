@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import BookMark from "../Pages/BookMark/BookMark";
 import Blogs from "../Pages/Blogs/Blogs";
 import RootLayout from "../RootLayout/RootLayout";
-import Home from '../Pages/Home/Home';
+import Home from '../Pages/Home/Home/Home';
 
 const MainRouter = () => {
   return (
