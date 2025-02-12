@@ -7,7 +7,7 @@ const Navbar = () => {
     
   return (
     <>
-      <div className="navbar bg-base-100 shadow-lg p-4 fixed z-10">
+      <div className="navbar bg-base-100 shadow-lg p-4 fixed z-10 h-16">
         <div className="flex-1">
           <Link to={"/"} className="btn btn-ghost text-xl gap-0 text-secondary normal-case ">Code<span className='text-primary'>Flare</span></Link>
         </div>
@@ -20,7 +20,7 @@ const Navbar = () => {
               <Link to={"blogs"}>Blogs</Link>
             </li>
             <li>
-              <Link to={"/bookmark"}>Bookmarks</Link>
+              <Link to={"bookmark"}>Bookmarks</Link>
             </li>
           </ul>
          <Theme/>

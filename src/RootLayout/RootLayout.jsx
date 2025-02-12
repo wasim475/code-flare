@@ -1,17 +1,13 @@
-import { Outlet } from 'react-router'
-import Navbar from '../Pages/SharedPages/Navbar/Navbar'
+import { Outlet } from "react-router";
+import Navbar from "../Pages/SharedPages/Navbar/Navbar";
 
 const RootLayout = () => {
   return (
     <div>
-        <div className='h-16'>
-        <Navbar/>
-        </div>
-        <Outlet/>
-        
-      
+      <Navbar/>
+      <Outlet/>
     </div>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;

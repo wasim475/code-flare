@@ -21,7 +21,7 @@ const Theme = () => {
             setTheme("light")
         }
     }
-    console.log(theme)
+    // console.log(theme)
   return (
     <>
        <label className="swap swap-rotate">
