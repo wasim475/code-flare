@@ -1,12 +1,71 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router';
+import BlogsCard from './BlogsCard';
 
 const Blogs = () => {
+  
+  const [blogs, setblogs]= useState(null)
+  useEffect( ()=>{
+    const getData = async ()=>{
+      const data = await axios.get("https://dev.to/api/articles?per_page=20&top=7")
+      setblogs(data.data)
+    }
+    getData()
+  },[])
+  
   return (
-    <div>
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tempore molestiae expedita ipsam at voluptates, earum consequatur labore, maxime facilis officiis accusantium totam modi eveniet illum. Ducimus, autem cumque magni voluptatum facilis esse pariatur eaque! Modi mollitia accusantium ut! Quo aliquid labore quasi ratione, odio praesentium quidem, accusamus aut soluta accusantium enim neque pariatur voluptatem illum ad adipisci. Quas eveniet consectetur fuga a numquam corporis dolorem molestiae aspernatur, nulla, recusandae quis impedit et. Beatae dolores ad consequuntur quo ullam doloribus aliquam totam dolore vitae nemo. Maxime veritatis dolor quis dolorem animi voluptatem quod aperiam repellat molestiae voluptate itaque consequatur ab quos saepe tempora neque esse sed, provident id illum laboriosam eius reprehenderit eaque corporis. Molestiae iste sint sed quae odit provident non ad, libero voluptate architecto unde vero quidem a sit quasi. Impedit, vero assumenda! Quisquam, fugit, possimus dolorum voluptate enim officiis iusto et non quidem fuga iure perspiciatis libero officia eligendi. Perspiciatis sint dolore blanditiis quas quis dolorem facere cum consectetur sunt, quia accusamus alias libero, commodi similique harum molestias maiores porro assumenda et corporis neque repellat? At, unde quae sapiente facilis magni dolorum, earum esse eius consectetur explicabo pariatur. Natus, alias. Cum culpa cupiditate consequuntur adipisci omnis veniam dolorum facere fugit quibusdam laboriosam beatae voluptatum quis aliquid odit quaerat quos earum, tempore est? Tempora repellat dicta sunt distinctio voluptatem repellendus totam, soluta doloribus corporis debitis libero fuga culpa nihil nam molestiae error, laboriosam omnis. Excepturi delectus fugiat totam doloremque, culpa corporis dolorum. Totam, maxime expedita molestiae nulla obcaecati eligendi amet illum aut alias soluta dolores provident, nostrum, nihil unde velit iure. Blanditiis, est repudiandae iste, odit autem accusantium possimus at vitae natus ipsum quibusdam, ut quam veniam aliquam eveniet sit voluptatibus incidunt perferendis libero tenetur unde veritatis sed impedit praesentium? In eos explicabo quae fugit delectus laudantium, obcaecati, dolorem deleniti libero dolore amet maiores veniam veritatis incidunt inventore. Aut cum, rerum ex dolore accusantium, quisquam consectetur eveniet esse at quibusdam doloremque natus repellendus. Fugit adipisci quae cum ad, in voluptatibus placeat? Alias nostrum quas laudantium modi beatae quia perferendis quibusdam unde quidem. Amet adipisci aliquam quia suscipit corporis. Nam aliquam repellat nostrum odio dolores quisquam alias? Iste quidem officiis fuga aspernatur. Soluta voluptate cupiditate et ipsum assumenda maxime, excepturi, natus corporis laudantium quaerat accusamus quia error modi nemo aspernatur exercitationem fuga tempora atque quo esse a? Quaerat non asperiores minima enim perspiciatis fugiat voluptatum iure tenetur quae ea, nulla assumenda error quis? Consequatur, ratione. Molestias ad quod reprehenderit laboriosam ducimus nobis repellendus sed consequatur omnis necessitatibus voluptate, doloribus cum minus fugit possimus saepe velit ea magnam dignissimos nam maxime. Dignissimos animi consectetur quia perspiciatis reprehenderit, voluptas sit iste officia, praesentium reiciendis repellat facere quos optio, adipisci odio omnis. Fugiat neque ducimus voluptate odio, tempore dolorem adipisci debitis praesentium. Facilis optio aliquam alias laboriosam fugiat qui iure iusto quisquam sapiente reprehenderit suscipit eveniet veniam aut nesciunt libero quo at quas provident voluptate architecto, iste odit nemo magnam? Eaque aspernatur culpa at placeat repudiandae aut quidem sequi iure quis tempore.
-      </h1>
-    </div>
-  )
-}
+    <>
+      <section className="dark:bg-gray-100 dark:text-gray-800">
+        <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50"
+          >
+            <img
+              src={blogs?.length > 0 && blogs[0]?.cover_image}
+              alt=""
+              className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500"
+            />
+            <div className="p-6 space-y-2 lg:col-span-5">
+              <h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">
+                {blogs?.length > 0 && blogs[0]?.title}
+              </h3>
+              <span className="text-xs dark:text-gray-600">
+                {
+                 blogs?.length && new Date(blogs[0]?.published_at).toLocaleDateString()
+                }
+              </span>
+              <p>
+                {
+                  blogs?.length > 0 && blogs[0]?.description
+                }
+              </p>
+            </div>
+          </a>
+          <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {
+              blogs?.map((blog, index)=>(
+                <BlogsCard
+                  key={index}
+                  blog={blog}
+                />
+              ))
+            }
+          </div>
+          <div className="flex justify-center">
+            <button
+              type="button"
+              className="px-6 py-3 text-sm rounded-md hover:underline dark:bg-gray-50 dark:text-gray-600"
+            >
+              Load more posts...
+            </button>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
-export default Blogs
+export default Blogs;
