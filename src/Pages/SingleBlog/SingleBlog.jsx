@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Tab from '../../components/Tab';
 
 const SingleBlog = () => {
   const [blogs, setblogs] = useState(null);
@@ -20,7 +21,7 @@ const SingleBlog = () => {
     return <h1>Loading...</h1>;
   }
   const singleBlog = blogs?.find((blog) => blog.id === parseInt(id));
-  console.log(singleBlog)
+  // console.log(singleBlog)
   const { title, published_at, cover_image, description, tag_list, tags,reading_time_minutes,user,public_reactions_count
 ,comments_count  } = singleBlog;
 
@@ -39,32 +40,21 @@ const SingleBlog = () => {
           </div>
         </div>
         <div className="dark:text-gray-800">
-          <p>Insert the actual text content here...</p>
+          <Tab singleBlog = {singleBlog} />
         </div>
       </article>
       <div>
         <div className="flex flex-wrap py-6 gap-2 border-t border-dashed dark:border-gray-600">
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-          >
-            #MambaUI
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-          >
-            #TailwindCSS
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-          >
-            #Angular
-          </a>
+          {
+            tag_list.map((tag, index)=>(
+              <a
+                key={index}
+              className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
+            >
+              #{tag}
+            </a>
+            ))
+          }
         </div>
         <div className="space-y-2">
           <h4 className="text-lg font-semibold">Related posts</h4>
