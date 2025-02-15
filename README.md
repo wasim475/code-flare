@@ -18,3 +18,6 @@ Resources:
 | Prop-Types | [Visit](https://www.npmjs.com/package/prop-types) |
 | Daisy UI | [Visit](https://daisyui.com/) |
 | TailwindCSS | [Visit](https://tailwindcss.com/) |
+
+react-Markdown and rehype-raw(Example)
+<!-- <Markdown rehypePlugins={[rehypeRaw]}>{body_html}</Markdown> -->
