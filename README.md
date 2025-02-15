@@ -5,6 +5,7 @@ Resources:
 | Resources      | Link                     |
 |----------|--------------------------|
 | React Router | [Visit](https://reactrouter.com/start/library/installation) |
+| React Redux | [Visit](https://react-redux.js.org/) |
 | Tailwindcss Buttons | [Visit](https://devdojo.com/tailwindcss/buttons) |
 | Mamba UI - Components | [Visit](https://mambaui.com/components) |
 | Animated Gradient Text | [Visit](https://www.andrealves.dev/blog/how-to-make-an-animated-gradient-text-with-tailwindcss/) |
