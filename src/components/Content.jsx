@@ -24,7 +24,7 @@ const Content = () => {
   if (!singleBlog) {
     return <h1>Loading...</h1>;
   }
-  console.log(singleBlog)
+  // console.log(singleBlog)
 
   const {
     comments_count,
@@ -53,7 +53,7 @@ const Content = () => {
     user,
   } = singleBlog;
 
-  console.log(cover_image);
+  // console.log(cover_image);
 
   return (
     <>
@@ -68,7 +68,7 @@ const Content = () => {
        <div className='mt-5'>
        {
           tag_list.map((tag)=>(
-            <a href="#">#{tag}</a>
+            <a key={tag} href="#">#{tag}</a>
           ))
         }
        </div>
@@ -76,7 +76,7 @@ const Content = () => {
           <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
             {title}
           </h3>
-         {}
+         <p>{description}</p>
         </div>
       </div>
     </>
