@@ -1,4 +1,4 @@
-Live site: [Code Flare](https://example.com)
+Live site: [Code Flare](https://code-flare.netlify.app/)
 
 Resources:
 
