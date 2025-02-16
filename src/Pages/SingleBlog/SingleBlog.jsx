@@ -41,7 +41,7 @@ const SingleBlog = () => {
           </div>
         </div>
         <div className="dark:text-gray-800">
-          <Tab id={id} singleBlog = {singleBlog} />
+          <Tab singleBlog={singleBlog} singleBlog = {singleBlog} />
         </div>
       </article>
       

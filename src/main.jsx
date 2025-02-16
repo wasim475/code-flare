@@ -6,12 +6,14 @@ import RootLayout from './RootLayout/RootLayout.jsx';
 import MainRouter from './Router/MainRouter';
 import { Provider } from 'react-redux';
 import store from './store/store.js';
+import  { Toaster } from 'react-hot-toast';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
     <BrowserRouter>
       <MainRouter/>
+      <Toaster/>
     </BrowserRouter>
     </Provider>
   </StrictMode>,
