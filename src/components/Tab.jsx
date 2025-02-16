@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router";
+import { MdBookmarkAdd } from "react-icons/md";
 
-const Tab = () => {
+
+const Tab = ({id}) => {
   const [tabIndex, setTabIndex] = useState(0);
+
+  const handleBookMark = (blogId)=>{
+    console.log(blogId)
+  }
   return (
     <>
       <div
@@ -51,6 +57,9 @@ const Tab = () => {
           </svg>
           <span>Author</span>
         </Link>
+        <div onClick={()=>handleBookMark(id)} className=" rounded-full p-2 overflow-hidden hover:scale-105 ml-5 bg-primary opacity-20 hover:opacity-30 cursor-pointer">
+          <MdBookmarkAdd size={20} className='text-red-500'/>
+        </div>
       </div>
       <section>
         <Outlet/>

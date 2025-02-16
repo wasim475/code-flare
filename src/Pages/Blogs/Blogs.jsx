@@ -4,7 +4,6 @@ import { useLoaderData } from 'react-router';
 import BlogsCard from './BlogsCard';
 
 const Blogs = () => {
-  
   const [blogs, setblogs]= useState(null)
   useEffect( ()=>{
     const getData = async ()=>{
@@ -13,6 +12,8 @@ const Blogs = () => {
     }
     getData()
   },[])
+
+  
   
   return (
     <>

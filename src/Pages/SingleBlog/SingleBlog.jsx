@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Tab from '../../components/Tab';
+import Loader from '../../components/Loader';
 
 const SingleBlog = () => {
   const [blogs, setblogs] = useState(null);
@@ -18,7 +19,7 @@ const SingleBlog = () => {
   }, []);
 
   if (!blogs) {
-    return <h1>Loading...</h1>;
+    return <Loader/>
   }
   const singleBlog = blogs?.find((blog) => blog.id === parseInt(id));
   // console.log(singleBlog)
@@ -40,9 +41,10 @@ const SingleBlog = () => {
           </div>
         </div>
         <div className="dark:text-gray-800">
-          <Tab singleBlog = {singleBlog} />
+          <Tab id={id} singleBlog = {singleBlog} />
         </div>
       </article>
+      
       <div>
       
         <div className="space-y-2">
