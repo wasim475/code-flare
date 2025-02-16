@@ -23,6 +23,7 @@ const BookMark = () => {
           key={index}
           blog={blog}
           deleteable = {true}
+          setBookMarkData={setBookMarkData}
         />
       ))
     }

@@ -2,9 +2,14 @@ import React from "react";
 import { Link } from "react-router";
 import placeholderImage from "../../assets/404.jpg";
 import { RxCrossCircled } from "react-icons/rx";
+import { deleteBlog } from '../../Utility/getblogLS';
 
-const BlogsCard = ({ blog, deleteable }) => {
+const BlogsCard = ({ blog, deleteable, setBookMarkData }) => {
   const { title, cover_image, published_at, description, id } = blog;
+  const handleDelete = (blogId)=>{
+    deleteBlog(id)
+    setBookMarkData((prevData) => prevData.filter(blog => blog.id !== blogId));
+  }
   return (
     
       <div className='relative max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50 border-2 transition hover:scale-105 border-primary hover:border-secondary rounded-sm'>
@@ -28,7 +33,7 @@ const BlogsCard = ({ blog, deleteable }) => {
           </div>
         </Link>
       {deleteable && (
-      <div onClick={()=>handleDelete} className="bg-primary absolute w-6 h-6 rounded-full flex justify-center items-center cursor-pointer top-0 right-0">
+      <div onClick={()=>handleDelete(id)} className="bg-primary absolute w-6 h-6 rounded-full flex justify-center items-center cursor-pointer top-0 right-0">
         <RxCrossCircled className="text-secondary" />
         </div>
       )}
