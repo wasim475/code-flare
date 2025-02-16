@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router'
 import { getBlogLS } from '../../Utility/getblogLS'
 import Loader from '../../components/Loader'
 import BlogsCard from '../Blogs/BlogsCard'
+import EmptyBlog from '../../components/EmptyBlog'
 
 
 const BookMark = () => {
@@ -14,7 +15,11 @@ const BookMark = () => {
  if(!bookmarkData){
   return <Loader/>
  }
- console.log(bookmarkData)
+
+ if(bookmarkData.length<1){
+    return <EmptyBlog message={"No Blog Found."} label={"go to blogs"} address={"/blogs"}/>
+ }
+ 
   return (
     <div className="grid justify-center px-12 py-8 grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {
